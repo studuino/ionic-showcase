@@ -98,6 +98,9 @@ export class TaskPage implements OnInit {
     this.itemService.deleteItem(item).then(result => {
       console.log('Result from delete mutation', result);
       this.presentToast('Item deleted');
+    }).catch(error => {
+      console.log('Error from delete mutation', error);
+      this.presentToast('Item cannot be deleted while offline');
     });
   }
 
